@@ -12,25 +12,29 @@ ci-framework
 		<code>application/controllers/welcome.php</code>
 
 		<h2>Basic configuration summery</h2>
-		<code>Base url : <a href="<?php echo base_url(); ?>"><?php echo base_url(); ?></a></code>
+		<code>Base url : <a href="#"><?php echo base_url(); ?></a></code>
 
-		<code>Site url : <a href="<?php echo site_url(); ?>"><?php echo site_url(); ?></a></code>
+		<code>Site url : <a href="#"><?php echo site_url(); ?></a></code>
 
 		<h3>Every frontend library files in asset folder</h3>
 		<code>
-			<a href="<?php echo base_url('assets/js'); ?>">assets/js</a>,
-			<a href="<?php echo base_url('assets/css/'); ?>">assets/css</a>,
-			<a href="<?php echo base_url('assets/img'); ?>">assets/img</a>,
-			<a href="<?php echo base_url('assets/uploads'); ?>">assets/uploads</a>,
+			<ul>
+				<li><a href="assets/js">assets/js</a>,</li>
+				<li><a href="assets/css>">assets/css</a>,</li>
+				<li><a href="assets/img">assets/img</a>,</li>
+				<li><a href="assets/uploads">assets/uploads</a>,</li>
+			</ul>
 		</code>
 
 		<h3>Library list</h3>
 		<code>
-			<a href="">Codeigniter 2.2</a>,
-			<a href="<?php echo base_url('assets/js/jquery-2.1.1.min.js'); ?>">jQuery 2.1.1</a>,
-			<a href="<?php echo base_url('assets/js/jquery.validate.js'); ?>">jQuery Validation Plugin v1.13.0</a>,
-			<a href="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js'); ?>">Eonasdan/bootstrap-datetimepicker</a>,
-			<a href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">Boostrap 3</a>,
+			<ul>
+				<li><a href="https://ellislab.com/codeigniter">Codeigniter 2.2</a>,</li>
+				<li><a href="<?php echo base_url('assets/js/jquery-2.1.1.min.js'); ?>">jQuery 2.1.1</a>,</li>
+				<li><a href="http://jqueryvalidation.org/">jQuery Validation Plugin v1.13.0</a>,</li>
+				<li><a href="//https://github.com/Eonasdan/bootstrap-datetimepicker">Eonasdan/bootstrap-datetimepicker</a>,</li>
+				<li><a href="http://getbootstrap.com">Boostrap 3</a>,</li>
+			</ul>
 		</code>
 
 
