@@ -35,7 +35,15 @@ ci-framework
 				<li><a href="//https://github.com/Eonasdan/bootstrap-datetimepicker">Eonasdan/bootstrap-datetimepicker</a>,</li>
 				<li><a href="http://getbootstrap.com">Boostrap 3</a>,</li>
 			</ul>
+		</code
+		
+		<code>
+	 	<h3>Users </h3>
+		<ul>
+			<li><a href="<?php echo site_url('admin/user/login'); ?>">Username : admin@madframework.com,Paswwrod:mad,</a>,</li> 
+		</ul>
 		</code>
-
+		 
+	
 
 	</div>

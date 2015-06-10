@@ -99,6 +99,14 @@
 			<a href="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js'); ?>">Eonasdan/bootstrap-datetimepicker</a>,
 			<a href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">Boostrap 3</a>,
 		</code>
+		<h3>Users </h3>
+		<code>
+		 	
+			<ul>
+				<li><a href="<?php echo site_url('admin/user/login'); ?>">Username : admin@madframework.com,Paswwrod:mad,</a>,</li> 
+			</ul>
+		</code>
+		 
 
 
 	</div>

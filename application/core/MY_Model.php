@@ -3,17 +3,17 @@
 class MY_Model extends CI_Model
 {
 
-	protected $_table_name ='';
-	protected $_primary_key ='';
-	protected $_primary_filter ='intval';
-	protected $_order_by ='';
+    protected $_table_name ='';
+    protected $_primary_key ='';
+    protected $_primary_filter ='intval';
+    protected $_order_by ='';
     protected $_timestamps =FALSE;
-	public     $rules = array();
+    public     $rules = array();
 
 /*********************Construct()**************************************/
-	function __construct()
+    function __construct()
     {
-    	parent::__construct();
+        parent::__construct();
     }
 
 
@@ -28,32 +28,32 @@ class MY_Model extends CI_Model
         {
             $this->db->select($fields);
         }
-    	if($id != NULL)
-    	{
-    		$filter = $this->_primary_filter;
-    		// $id = $filter($id);
-    		$this->db->where($this->_primary_key, $id);
-    		$method =  'row';
-    	}
-    	elseif($single == TRUE)
-    	{
+        if($id != NULL)
+        {
+            $filter = $this->_primary_filter;
+            // $id = $filter($id);
+            $this->db->where($this->_primary_key, $id);
+            $method =  'row';
+        }
+        elseif($single == TRUE)
+        {
            
-    		$method = 'row';
-    	}
-    	else
-    	{
-    		$method = 'result';
-    	}
+            $method = 'row';
+        }
+        else
+        {
+            $method = 'result';
+        }
 
-    	// if(!count($this->db->ar_order_by))
-    	// {
-    	// 	$this->db->order_by($this->_order_by);
-    	// }
+        if($this->_order_by!='')
+        {
+            $this->db->order_by($this->_primary_key,$this->_order_by);
+        }
         if ($perpage!=0){
             $this->db->limit($perpage,$start);
         }
-    	return $this->db->get($this->_table_name)->$method($array); 
-    	
+        return $this->db->get($this->_table_name)->$method($array); 
+        
     }//Function End get()---------------------------------------------------FUNEND()
 
 
@@ -67,8 +67,8 @@ class MY_Model extends CI_Model
         if ($fields!==NULL) {
             $this->db->select($fields);
         }
-    	$this->db->where($where);
-    	return $this->get(NULL, $id, $single,$perpage);
+        $this->db->where($where);
+        return $this->get(NULL, $id, $single,$perpage);
     }//Function End get_by()---------------------------------------------------FUNEND()
 
 
@@ -79,30 +79,32 @@ class MY_Model extends CI_Model
     //#return type :
     public function save($data, $id = NULL)
     {
-    	// set timestamp
-    	$this->_timestamps = TRUE;
-    	$now = date('Y-m-d H:i:s');
-    	$id || $data['created'] = $now;
-    	$data['modified'] = $now; 
-    	// insert
-    	if($id == NULL)
-    	{            
-    		$this->db->set($data);
-    		!isset($data[$this->_primary_key]) || $data[$this->_primary_key] = NULL;
-    		$this->db->insert($this->_table_name);
-    		$id = $this->db->insert_id();
-    	}
-    	// update
-    	else
-    	{
-    		// $filter = $this->_primary_filter;
-    		// $id = $filter($id);
-    		$this->db->set($data);
-    		$this->db->where($this->_primary_key, $id);
-    		$this->db->update($this->_table_name);
-    	}
+        // set timestamp 
+        if ($this->_timestamps==TRUE)
+        { 
+            $now = date('Y-m-d H:i:s');
+            $id || $data['created'] = $now;
+            $data['modified'] = $now; 
+        }
+        // insert
+        if($id == NULL)
+        {            
+            $this->db->set($data);
+            !isset($data[$this->_primary_key]) || $data[$this->_primary_key] = NULL;
+            $this->db->insert($this->_table_name);
+            $id = $this->db->insert_id();
+        }
+        // update
+        else
+        {
+            // $filter = $this->_primary_filter;
+            // $id = $filter($id);
+            $this->db->set($data);
+            $this->db->where($this->_primary_key, $id);
+            $this->db->update($this->_table_name);
+        }
 
-    	return $id;
+        return $id;
     }//Function End save()---------------------------------------------------FUNEND()
 
 
@@ -113,23 +115,23 @@ class MY_Model extends CI_Model
     //#return type :
     public function delete($id=NULL)
     {
-    	$filter =  $this->_primary_filter;
-    	$id = $filter($id);
+        $filter =  $this->_primary_filter;
+        $id = $filter($id);
 
-    	if(!$id)
-    	{
-    		return FALSE;
-    	}
-    	else
-    	{
+        if(!$id)
+        {
+            return FALSE;
+        }
+        else
+        {
 
-    		$this->db->where(array($this->_primary_key=>$id));
-    		$this->db->limit(1);
-    		$this->db->delete($this->_table_name);
+            $this->db->where(array($this->_primary_key=>$id));
+            $this->db->limit(1);
+            $this->db->delete($this->_table_name);
             
             return TRUE;
-    	}
-    	
+        }
+        
     }//Function End delete()---------------------------------------------------FUNEND()
 
     /*************************Start Function array_from_post()***********************************/

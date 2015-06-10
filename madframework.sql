@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 12, 2014 at 06:36 PM
--- Server version: 5.5.8
--- PHP Version: 5.3.5
+-- Generation Time: Nov 19, 2014 at 01:04 PM
+-- Server version: 5.5.36
+-- PHP Version: 5.4.27
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -30,20 +31,23 @@ CREATE TABLE IF NOT EXISTS `tbl_admin` (
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL DEFAULT 'default.jpg',
   `username` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
   `admin_level_id` int(10) DEFAULT NULL,
   `last_login` datetime NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `enable` tinyint(3) NOT NULL,
+  `enable` tinyint(3) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `tbl_admin`
 --
 
+INSERT INTO `tbl_admin` (`id`, `firstname`, `lastname`, `email`, `image`, `username`, `password`, `admin_level_id`, `last_login`, `created`, `modified`, `enable`) VALUES
+(1, 'admin', 'admin', 'admin@madframework.com', 'default.jpg', 'admin', 'd41d8cd98f00b204e9800998ecf8427e0123456789hello', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -86,11 +90,6 @@ CREATE TABLE IF NOT EXISTS `tbl_option_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `tbl_option_type`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -105,7 +104,6 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `tbl_users`
---
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

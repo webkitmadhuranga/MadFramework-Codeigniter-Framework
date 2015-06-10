@@ -26,9 +26,7 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 
-        // set site name
-        $this->data['site_name'] = $this->config->item('site_name');
-        
+        // set site name  
         $this->data['errors'] = array();
         // set today date
         $this->data['today'] = date('Y-m-d');
@@ -71,7 +69,7 @@ class MY_Controller extends CI_Controller
         $post_data_array = array();
         foreach ($name_array as $key => $value)
         {
-        	 $post_data_array[$value] = @$_POST[$value];
+        	 $post_data_array[$value] = $this->input->post($value);
         }
  
         return $post_data_array;
