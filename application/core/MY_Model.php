@@ -7,7 +7,7 @@ class MY_Model extends CI_Model
 	protected $_primary_key ='';
 	protected $_primary_filter ='intval';
 	protected $_order_by ='';
-    protected $_timestamps =FALSE;
+    	protected $_timestamps =FALSE;
 	public     $rules = array();
 
 /*********************Construct()**************************************/
@@ -45,7 +45,7 @@ class MY_Model extends CI_Model
     		$method = 'result';
     	}
 
-    	if(!count($this->db->ar_order_by))
+    	if($this->_order_by!='')
     	{
     		$this->db->order_by($this->_order_by,$asOrder);
     	}
