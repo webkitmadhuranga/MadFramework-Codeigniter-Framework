@@ -50,7 +50,7 @@ class MY_Model extends CI_Model
     		$this->db->order_by($this->_order_by,$asOrder);
     	}
         if($start!=0) $this->db->limit($perpage,$start);
-    	return $this->db->get($this->_table_name)->$method($array); 
+    	return $this->db->get($this->_table_name)->$method(); 
     	
     }//Function End get()---------------------------------------------------FUNEND()
 
@@ -60,7 +60,7 @@ class MY_Model extends CI_Model
     //
     //@ type :
     //#return type :
-    public function get_by($where='', $fields = NULL, $id = NULL, $single = FALSE, $asOrder="ASC", $perpage=0, $start=0, $array='array')
+    public function get_by($where='', $fields = NULL, $id = NULL, $single = FALSE, $asOrder="ASC", $perpage=0, $start=0)
     {
     	$this->db->where($where);
     	return $this->get($fields, $id, $single, $asOrder);
